@@ -3,9 +3,11 @@ $(document).ready(function() {
     // Criar uam função para monitorar o click em cima do botão com classe btn-save
     $('.btn-save').click(function(e) {
         e.preventDefault()
-            // Iremos coletar todas as informações digitadas no formulário
+
+        // Iremos coletar todas as informações digitadas no formulário
         var dados = $('#adiciona-disciplinas').serialize()
-            // Criar uma requisição AJAX assincrona
+
+        // Criar uma requisição AJAX assincrona
         $.ajax({
             type: 'POST', //É o como as informações serão enviadas ao PHP
             dataType: 'JSON', //É o modo de transição de dados entre a visão e modelo
@@ -22,7 +24,8 @@ $(document).ready(function() {
                         </button>
                 </div>
                 `)
-                    // Limpando os campos do nosso formulário
+
+                // Limpando os campos do nosso formulário
                 $('#disciplina').val('')
                 $('#professor').val('')
             }
