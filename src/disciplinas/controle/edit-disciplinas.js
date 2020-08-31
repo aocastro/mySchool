@@ -17,7 +17,7 @@ function closeForm() {
 $(document).ready(function() {
 
     // Monitorar o clique em cima dos botões com a classe btn-view
-    $('.btn-view').on('click', function(e) {
+    $('.btn-edit').on('click', function(e) {
         e.preventDefault()
 
         // Criando uma variável para coletar o ID do botão clicado
@@ -38,17 +38,18 @@ $(document).ready(function() {
                 // Carregando nosso formulário dentro da DIV que deixamos em branco para mostrar os dados
                 $('#form').load('src/disciplinas/visao/adiciona-disciplinas.html', function() {
                     $('.btn-save').after('<button class="btn btn-secondary btn-block btn-close"><i class="mdi mdi-close"></i> Fechar</button>')
-                    $('.btn-save').hide()
+                    $('.btn-save').addClass('btn-update').removeClass('btn-save')
                     $('h2').empty()
-                    $('h2').append('Visualização de cadastro')
+                    $('h2').append('Edição de cadastro')
                     $('#disciplina').val(dados[0].disciplina)
-                    $('#disciplina').attr('disabled', true)
                     $('#professor').val(dados[0].professor)
-                    $('#professor').attr('disabled', true)
+                    $('#professor').after(`<input type="hidden" name="id" id="id" value="${dados[0].id}">`)
 
                     closeForm()
 
                 })
+
+                $('body').append('<script src="src/disciplinas/controle/atualiza-disciplinas.js"></script>')
 
             }
         })
