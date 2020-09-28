@@ -4,15 +4,16 @@ $(document).ready(function() {
         type: 'POST',
         dataType: 'JSON',
         assync: true,
-        url: 'src/disciplinas/modelo/list-disciplinas.php',
+        url: 'src/alunos/modelo/list-alunos.php',
         success: function(dados) {
             for (var i = 0; i < dados.length; i++) {
 
                 let resultado = `
                     <tr>
                         <td class="text-center">${dados[i].id}</td>
-                        <td>${dados[i].disciplina}</td>
-                        <td>${dados[i].professor}</td>
+                        <td>${dados[i].nome}</td>
+                        <td>${dados[i].curso}</td>
+                        <td>${dados[i].tipo == 1 ? 'Administrador' : 'Aluno'}</td>
                         <td class="text-center">
                             <button id="${dados[i].id}" class="btn btn-info btn-view btn-sm"><i class="mdi mdi-eye"></i></button>
                             <button id="${dados[i].id}" class="btn btn-primary btn-edit btn-sm"><i class="mdi mdi-pencil"></i></button>
@@ -25,9 +26,9 @@ $(document).ready(function() {
 
             }
 
-            $('body').append('<script src="src/disciplinas/controle/view-disciplinas.js"></script>')
-            $('body').append('<script src="src/disciplinas/controle/edit-disciplinas.js"></script>')
-            $('body').append('<script src="src/disciplinas/controle/delete-disciplinas.js"></script>')
+            $('body').append('<script src="src/alunos/controle/view-alunos.js"></script>')
+            $('body').append('<script src="src/alunos/controle/edit-alunos.js"></script>')
+            $('body').append('<script src="src/alunos/controle/delete-alunos.js"></script>')
 
         }
     })
