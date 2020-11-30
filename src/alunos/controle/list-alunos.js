@@ -26,6 +26,7 @@ $(document).ready(function() {
 
             }
 
+            $('body').append('<script src="src/alunos/controle/busca-alunos.js"></script>')
             $('body').append('<script src="src/alunos/controle/view-alunos.js"></script>')
             $('body').append('<script src="src/alunos/controle/edit-alunos.js"></script>')
             $('body').append('<script src="src/alunos/controle/delete-alunos.js"></script>')
